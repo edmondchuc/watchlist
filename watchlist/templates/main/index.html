@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">Watchlist</h1>
+
+{% if movies %}
+{% include 'movies_list.html' %}
+{% else %}
+{% if user.is_authenticated %}
+<p class="text-center">Hello {{ user.username }}!</p>
+{% endif %}
+<p class="text-center">Nothing in your list, try searching and adding some movies to your watchlist 😛</p>
+
+<div class="text-center mt-3 mb-3">
+    <a href="{{ url_for('main.search') }}" class="btn btn-primary">Search movies</a>
+</div>
+{% endif %}
+{% endblock %}

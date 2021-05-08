@@ -1,0 +1,18 @@
+.no-image {
+    background-color: grey;
+    width: 200px;
+    height: 250px;
+}
+
+.inline {
+    display: inline !important;
+}
+
+.clear {
+    clear: both !important;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0;
+}

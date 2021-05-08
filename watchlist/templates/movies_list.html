@@ -1,0 +1,40 @@
+{% for movie in movies %}
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 id="{{ movie.id }}" class="card-title">{{ movie.title }}</h5>
+
+        {% if movie.release_date %}
+        <div class="mb-2 fw-bold">Release date: {{ movie.release_date }}</div>
+        {% else %}
+        <div class="mb-2 fw-bold">Unreleased</div>
+        {% endif %}
+
+        {% if movie.vote_average %}
+        <div class="mb-2">Rating: {{ movie.vote_average }}</div>
+        {% endif %}
+
+        {% if movie.poster_path %}
+        <img class="float-start me-3" src="{{ img_url + movie.poster_path }}">
+        {% else %}
+        <div class="no-image float-start me-3"></div>
+        {% endif %}
+
+        <p class="card-text mb-1">{{ movie.overview }}</p>
+
+        <div class="clear">
+            {% if not movie.in_watchlist %}
+            <form action="{{ url_for('main.add_to_watchlist') }}" method="get">
+                <input name="movie_id" value="{{ movie.id }}" hidden>
+                <button class="btn btn-primary mt-2" type="submit">Add to watchlist</button>
+            </form>
+            {% else %}
+            <form action="{{ url_for('main.remove_from_watchlist') }}" method="get">
+                <input name="movie_id" value="{{ movie.id }}" hidden>
+                <button class="btn btn-primary mt-2" type="submit">Remove from watchlist</button>
+            </form>
+            {% endif %}
+<!--            <a href="#" class="btn btn-light mt-2">Add to watched</a>-->
+        </div>
+    </div>
+</div>
+{% endfor %}

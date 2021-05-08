@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">Search</h1>
+
+<p class="text-center">Search movies to add to your watch list 🍿</p>
+
+<div class="px-3 pt-3 pb-3">
+    <form action="{{ url_for('main.search') }}" method="get" autocomplete="off">
+        <label for="search" class="form-label">Search 🎬</label>
+        <input type="text" class="form-control" id="search" name="q" aria-describedby="searchHelp">
+        <div id="searchHelp" class="form-text">Search by movie title.</div>
+    </form>
+
+    {% include 'movies_list.html' %}
+</div>
+{% endblock %}

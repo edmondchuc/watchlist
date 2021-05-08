@@ -1,0 +1,10 @@
+flask
+flask-login
+flask-session
+flask-sqlalchemy
+flask-migrate
+passlib[bcrypt]
+requests
+pydantic
+tmdbv3api
+gunicorn
