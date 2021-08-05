@@ -7,18 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+          <a class="nav-link" hx-get="{{ url_for('main.home') }}" hx-push-url="true" hx-target="#body">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('main.search') }}">Search</a>
+          <a class="nav-link" hx-get="{{ url_for('main.search') }}" hx-push-url="true" hx-target="#body">Search</a>
         </li>
         {% if not user.is_authenticated %}
         <li class="nav-item">
-          <a href="{{ url_for('auth.login') }}" class="nav-link">Login</a>
+          <a hx-get="{{ url_for('auth.login') }}" hx-push-url="true" hx-target="#body" class="nav-link">Login</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a href="{{ url_for('auth.logout') }}" class="nav-link">Logout</a>
+          <a hx-get="{{ url_for('auth.logout') }}" hx-push-url="true" hx-target="#body" class="nav-link">Logout</a>
         </li>
         {% endif %}
       </ul>

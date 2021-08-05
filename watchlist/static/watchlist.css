@@ -16,3 +16,9 @@
     list-style: none;
     padding: 0;
 }
+
+/* This is required when not using the href attribute on an <a> tag.
+    Since we're using HTMX, we no longer use the href attribute. */
+a {
+    cursor: pointer;
+}
